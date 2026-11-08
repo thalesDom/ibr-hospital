@@ -1,0 +1,66 @@
+/* ═══════════════════════════════════════════════════════════
+   IBR HOSPITAL — menu.css
+   Menu do topo (desktop) igual em todas as páginas.
+   No celular/tablet o menu hambúrguer de cada página continua como está.
+═══════════════════════════════════════════════════════════ */
+@media (min-width: 1025px) {
+  .nav-links { gap: 4px; }
+  .nav-link {
+    padding: 11px 16px; border-radius: 50px;
+    font-size: .94rem; font-weight: 600; color: #0d1f3c !important;
+    transition: background .25s, color .25s;
+  }
+  .nav-link:hover { background: #f0f6ff !important; color: #1a5ccc !important; }
+  .nav-link--active { background: #eef5ff !important; color: #1a5ccc !important; }
+  .nav-link .nav-chevron { transition: transform .25s; }
+  .nav-dropdown:hover .nav-chevron { transform: rotate(180deg); }
+
+  /* submenus */
+  .dropdown-menu {
+    top: calc(100% + 6px); min-width: 240px; padding: 10px;
+    border-radius: 22px; border: 1px solid #e8edf6;
+    box-shadow: 0 2px 4px rgba(13,32,68,.04), 0 36px 64px -26px rgba(13,32,68,.4);
+  }
+  .dropdown-menu a { padding: 10px 14px; border-radius: 12px; font-size: .9rem; font-weight: 500; color: #3d5175; }
+  .dropdown-menu a:hover { background: #f0f6ff; color: #1a5ccc; }
+}
+
+/* ── Menu em cápsula flutuante (desktop) ── */
+@media (min-width: 1025px) {
+  .navbar::before, .navbar.scrolled::before {
+    inset: 10px max(16px, calc((100% - 1264px) / 2));
+    border-radius: 32px;
+    background: rgba(255,255,255,.97);
+    border: 1px solid #e8edf6;
+    border-bottom: 1px solid #e8edf6;
+    -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+    box-shadow: 0 2px 4px rgba(13,32,68,.04), 0 26px 50px -26px rgba(13,32,68,.4);
+  }
+  .nav-inner { padding: 0 52px; }
+  .nav-link { padding: 12px 18px; }
+}
+
+/* sombra do menu bem mais leve (não "suja" o conteúdo logo abaixo) */
+@media (min-width: 1025px) {
+  .navbar::before, .navbar.scrolled::before {
+    box-shadow: 0 1px 2px rgba(13,32,68,.04), 0 12px 24px -18px rgba(13,32,68,.22);
+  }
+}
+
+/* ── Submenus no menu do celular (a classe html.nav-mobile é colocada por tema-claro.js) ── */
+html.nav-mobile .nav-dropdown .dropdown-menu {
+  position: static !important; left: auto !important; top: auto !important; transform: none !important;
+  width: 100% !important; min-width: 0 !important; margin: 0 !important; padding: 0 !important;
+  background: transparent !important; border: 0 !important; box-shadow: none !important; border-radius: 0 !important;
+  opacity: 0 !important; visibility: hidden !important; max-height: 0 !important; overflow: hidden !important;
+  transition: max-height .3s ease, opacity .25s ease !important;
+}
+html.nav-mobile .nav-dropdown.open > .dropdown-menu,
+html.nav-mobile .nav-dropdown .dropdown-menu.open {
+  opacity: 1 !important; visibility: visible !important; max-height: min(55vh, 420px) !important;
+  overflow-y: auto !important; padding: 4px 0 10px 14px !important;
+}
+html.nav-mobile .dropdown-menu a { display: block; padding: 11px 14px; border-radius: 12px; font-size: .95rem; font-weight: 500; color: #3d5175 !important; }
+html.nav-mobile .dropdown-menu a:hover, html.nav-mobile .dropdown-menu a:active { background: #f0f6ff !important; color: #1a5ccc !important; }
+html.nav-mobile .nav-dropdown .nav-chevron { transition: transform .25s; }
+html.nav-mobile .nav-dropdown.open .nav-chevron { transform: rotate(180deg); }

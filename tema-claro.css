@@ -1,0 +1,65 @@
+/* ═══════════════════════════════════════════════════════════
+   IBR HOSPITAL — tema-claro.css
+   Topo, menu e hero BRANCOS em todas as páginas internas
+   (a home tem as mesmas regras no próprio style.css).
+   Carregado por último em cada página, por isso sobrepõe o azul escuro.
+═══════════════════════════════════════════════════════════ */
+
+/* Barra do topo */
+.topbar { background: #fff !important; border-bottom: 1px solid #eef0f4 !important; }
+.topbar-item { color: #3d5175 !important; }
+.topbar-item:hover { color: #1a5ccc !important; }
+.topbar-divider { background: rgba(13,32,68,.14) !important; }
+.topbar-social { background: #fff !important; border: 1px solid #e6e9ef !important; color: #3d5175 !important; }
+.topbar-social:hover { background: #2e7bbf !important; border-color: #2e7bbf !important; color: #fff !important; }
+
+/* Menu */
+.navbar { box-shadow: none !important; }
+.navbar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  z-index: -1;
+}
+.nav-link { color: #0d1f3c !important; }
+.nav-link:hover { background: #f0f6ff !important; color: #1a5ccc !important; }
+.nav-link--active { background: #f0f6ff !important; color: #1a5ccc !important; font-weight: 700; }
+.nav-hamburger span { background: #0d1f3c !important; }
+.nav-hamburger:hover { background: rgba(13,32,68,.06) !important; }
+
+/* Hero */
+.hero { background: #fff !important; }
+.hero::before, .hero::after { display: none !important; }
+.hero-eyebrow { color: #2e7bbf !important; background: #f2f7fd !important; border: 1px solid #dbe8f8 !important; }
+.hero h1 { color: #0d1f3c !important; }
+.hero h1 em { color: #2e7bbf !important; }
+.hero p { color: #3d5175 !important; }
+.hero { padding-top: 196px !important; }
+.hero h1, .hero p, .hero-eyebrow { text-shadow: none !important; -webkit-text-stroke: 0 !important; }
+@media (max-width: 768px) { .hero { padding-top: 130px !important; } }
+.hero h1 { font-family: 'Fredoka', 'Plus Jakarta Sans', system-ui, sans-serif !important; font-weight: 600 !important; }
+.navbar, .navbar.scrolled { box-shadow: none !important; border-bottom: 0 !important; }
+
+.topbar { position: absolute !important; }
+.navbar { transition: background .3s, box-shadow .3s !important; }
+
+/* ── Responsivo ──
+   Celular: a barra do topo (telefone/e-mail/redes) não cabe — some, como na home,
+   e o menu fica colado no topo. */
+@media (max-width: 768px) {
+  .topbar { display: none !important; }
+  .navbar { top: 0 !important; }
+  .nav-links { top: 76px !important; }
+}
+/* Tablet: o menu completo ainda aparece (769–1024px) — aperta pra caber sem estourar */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .nav-inner { padding: 0 16px !important; }
+  .nav-link { padding: 10px 8px !important; font-size: .84rem !important; gap: 3px !important; }
+  .logo-img { height: 56px !important; }
+}
+
+/* etiqueta acima do título da hero removida (todas as páginas internas) */
+.hero-eyebrow { display: none !important; }
+.hero { padding-top: 176px !important; }
+@media (max-width: 768px) { .hero { padding-top: 120px !important; } }

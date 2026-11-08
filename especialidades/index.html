@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="is-loading">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Especialidades — IBR Hospital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="../tema-claro.css" />
+  <link rel="stylesheet" href="../rodape.css" />
+  <link rel="stylesheet" href="../menu.css" />
+</head>
+<body>
+
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-inner">
+      <svg class="preloader-pulse" viewBox="0 0 300 70" preserveAspectRatio="none" aria-hidden="true">
+        <path class="preloader-pulse-track" d="M0,38 L92,38 L110,10 L128,62 L146,24 L160,38 L300,38" pathLength="100" />
+        <path class="preloader-pulse-scan" d="M0,38 L92,38 L110,10 L128,62 L146,24 L160,38 L300,38" pathLength="100" />
+      </svg>
+      <span class="preloader-text">Carregando<span class="preloader-dots"><span>.</span><span>.</span><span>.</span></span></span>
+    </div>
+  </div>
+  <script>
+    window.addEventListener('load', function () {
+      var pre = document.getElementById('preloader');
+      var html = document.documentElement;
+      setTimeout(function () {
+        if (pre) {
+          pre.classList.add('preloader--hidden');
+          pre.addEventListener('transitionend', function () { pre.remove(); }, { once: true });
+        }
+        html.classList.remove('is-loading');
+      }, 450);
+    });
+  </script>
+
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-left">
+        <a href="tel:7734258000" class="topbar-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.4 2.18 2 2 0 012.38 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          (77) 3425-8000
+        </a>
+        <span class="topbar-divider"></span>
+        <a href="mailto:ibr@ibr.com.br" class="topbar-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          ibr@ibr.com.br
+        </a>
+      </div>
+      <div class="topbar-right">
+        <a href="#" class="topbar-social"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="#" class="topbar-social"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" class="topbar-social"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98" fill="white"/></svg></a>
+        <a href="https://wa.me/557734258000" class="topbar-social" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.122 1.523 5.852L.057 23.796a.5.5 0 00.6.633l6.102-1.602A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.886 0-3.667-.5-5.207-1.377l-.373-.215-3.868 1.015 1.035-3.795-.23-.386A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="../home/index.html" class="nav-logo">
+        <div class="logo-mark">
+          <img src="../imagens/Fundo PNG.png" alt="IBR Hospital" class="logo-img">
+        </div>
+      </a>
+      <div class="nav-right">
+        <nav class="nav-links" id="navLinks">
+          <a href="../sobre/index.html" class="nav-link">Sobre</a>
+          <a href="../especialidades/index.html" class="nav-link nav-link--active">Especialidades</a>
+          <a href="../servico-medico/index.html" class="nav-link">Serviços Médicos</a>
+          <a href="../medicos/index.html" class="nav-link">Médicos</a>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-link">Convênios <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <div class="dropdown-menu">
+                <a href="https://institucional.amil.com.br/" target="_blank">Amil</a>
+                <a href="https://www.asfeb.org.br/saude/" target="_blank">Asfeb Saúde</a>
+                <a href="https://www.assefaz.org.br/" target="_blank">Assefaz</a>
+                <a href="https://www.bradescoseguros.com.br/clientes/produtos/plano-saude" target="_blank">Bradesco Saúde</a>
+                <a href="https://www.casseb.com.br/" target="_blank">Casseb Saúde</a>
+                <a href="https://www.cassi.com.br/nossos-planos/" target="_blank">Cassi</a>
+                <a href="https://copass-saude.com.br/" target="_blank">Copass</a>
+                <a href="https://www.geap.org.br/" target="_blank">Geap</a>
+                <a href="https://www.goldencross.com.br/Paginas/home.aspx" target="_blank">Golden Cross</a>
+                <a href="#">Ibar Nordeste</a>
+                <a href="https://planomedico.inb.gov.br/PortalServicosPro/Login" target="_blank">INB - Indústria Nuclear do Brasil</a>
+                <a href="https://portal.lifeempresarial.com.br/PlanodeSaude/" target="_blank">Life Empresarial Saúde</a>
+                <a href="https://mediservice.com.br/wps/portal/mediservice/mediservice/home" target="_blank">Mediservice</a>
+                <a href="https://saudepetrobras.com.br/" target="_blank">Petrobras AMS</a>
+                <a href="https://www.planserv.ba.gov.br/planserv/beneficiario" target="_blank">Planserv</a>
+                <a href="#">Portal Saúde</a>
+                <a href="https://preservesaude.com.br/" target="_blank">Preserve Saúde</a>
+                <a href="https://www.prosaude.org.br/" target="_blank">Pró-Social</a>
+                <a href="#">Saae Macarani</a>
+                <a href="https://saude.caixa.gov.br/PORTALPRD/RedeAtendimento" target="_blank">Saúde Caixa</a>
+                <a href="https://portal.sulamericaseguros.com.br/para-voce/saude/movimentacao-da-rede-referenciada/" target="_blank">Sul América</a>
+                <a href="https://wa.me/557734258000" target="_blank">Particular</a>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-link">Fale Conosco <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <div class="dropdown-menu">
+              <a href="../contato/index.html">Contato</a>
+              <a href="../ouvidoria/index.html">Ouvidoria</a>
+              <a href="../trabalhe-conosco/index.html">Trabalhe Conosco</a>
+            </div>
+          </div>
+        </nav>
+        <div class="nav-actions">
+          <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-eyebrow">Corpo Clínico Especializado</span>
+      <h1>Especialidades Médicas.</h1>
+      <p>Contamos com profissionais especializados em diversas áreas da medicina para oferecer o melhor tratamento para você e sua família.</p>
+    </div>
+  </section>
+
+  <!-- ESPECIALIDADES -->
+  <section class="esp-page" id="especialidades">
+    <div class="container" id="espLista">
+      <!-- preenchido via JS -->
+    </div>
+  </section>
+
+  <!-- MODAIS (gerados via JS) -->
+  <div id="modaisContainer"></div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+
+          <div class="footer-brand">
+            <a href="../home/index.html" class="footer-logo" aria-label="IBR Hospital">
+              <img src="../imagens/logo-branca.png" alt="IBR Hospital" class="footer-logo-img">
+            </a>
+            <p class="footer-about">Há mais de 35 anos cuidando da saúde de Vitória da Conquista e região, com atendimento humanizado e tecnologia de ponta.</p>
+            <div class="footer-ona">
+              <img src="../imagens/SELO-MELHOR-HOSPITAL.png" alt="Selo Melhor Hospital" class="footer-selo-img">
+            </div>
+            <div class="footer-social">
+              <!-- Facebook -->
+              <a href="https://www.facebook.com/hospitalibr/" class="social-link" aria-label="Facebook">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+              </a>
+              <!-- Instagram -->
+              <a href="https://www.instagram.com/ibrhospital/" class="social-link" aria-label="Instagram">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </a>
+              <!-- YouTube -->
+              <a href="https://www.youtube.com/@hospitalibr" class="social-link" aria-label="YouTube">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+              </a>
+              <!-- WhatsApp -->
+              <a href="https://wa.me/557734258000" class="social-link" target="_blank" aria-label="WhatsApp">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.122 1.523 5.852L.057 23.796a.5.5 0 00.6.633l6.102-1.602A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.886 0-3.667-.5-5.207-1.377l-.373-.215-3.868 1.015 1.035-3.795-.23-.386A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Navegue</h4>
+            <ul>
+              <li><a href="../sobre/index.html">Sobre o Hospital</a></li>
+              <li><a href="../especialidades/index.html">Especialidades</a></li>
+              <li><a href="../servico-medico/index.html">Serviços Médicos</a></li>
+              <li><a href="../medicos/index.html">Médicos</a></li>
+              <li><a href="../noticias/index.html">Notícias</a></li>
+              <li><a href="../contato/index.html">Contato</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Acesso Rápido</h4>
+            <ul>
+              <li><a href="https://eucuido.med.br/RLA/form.jsp?sys=RLA&action=openform&formID=21">Resultados de Exames</a></li>
+              <li><a href="../servo/index.html">Acesso ao Servo</a></li>
+              <li><a href="https://servo.ibr.com.br/servo/form.jsp?sys=SRV&action=openform&formID=753&align=0&mode=-1&goto=-1&filter=&scrolling=no">Notificações e Eventos</a></li>
+              <li><a href="../ouvidoria/index.html">Ouvidoria</a></li>
+              <li><a href="../trabalhe-conosco/index.html">Trabalhe Conosco</a></li>
+              <li><a href="../area-restrita/dashboard/index.html">Área Restrita</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col footer-col--contact">
+            <div class="footer-urgency"><i></i>Pronto-Socorro 24 horas</div>
+            <h4>Fale com a gente</h4>
+            <div class="footer-contact">
+            <div class="footer-contact-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.4 2.18 2 2 0 012.38 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            <a href="tel:7734258000">(77) 3425-8000</a>
+            </div>
+            <div class="footer-contact-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>
+            <a href="mailto:ibr@ibr.com.br">ibr@ibr.com.br</a>
+            </div>
+            <div class="footer-contact-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Rua Góes Calmon, 235<br>Centro, Vitória da Conquista - BA<br>CEP: 45020-040</span>
+            </div>
+            </div>
+            <a href="https://www.google.com/maps/search/?api=1&query=Rua+G%C3%B3es+Calmon,+235,+Vit%C3%B3ria+da+Conquista+-+BA" target="_blank" rel="noopener" class="footer-map-btn">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+              Como chegar
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2025 IBR Hospital. Todos os direitos reservados.</p>
+        <p>IBR INSTITUTO BRANDÃO DE REABILITAÇÃO LTDA — CNPJ 13.284.872/0001-70 · <a href="../politica-privacidade/index.html">Política de Privacidade</a></p>
+      </div>
+    </div>
+  </footer>
+
+      <!-- COOKIES -->
+  <div class="cookie-consent" id="cookieConsent">
+    <div class="cookie-banner" id="cookieBanner">
+      <div class="cookie-banner-text">
+        <strong>Controle sua privacidade</strong>
+        <p>Nosso site usa cookies para melhorar a navegação. <a href="../politica-privacidade/">Política de Privacidade</a></p>
+      </div>
+      <div class="cookie-banner-actions">
+        <button class="cookie-btn cookie-btn-text" id="cookieCustomize" type="button">Personalizar</button>
+        <button class="cookie-btn cookie-btn-outline" id="cookieReject" type="button">Rejeitar</button>
+        <button class="cookie-btn cookie-btn-solid" id="cookieAccept" type="button">Aceitar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="cookie-modal-overlay" id="cookieModalOverlay" hidden>
+    <div class="cookie-modal">
+      <div class="cookie-modal-header">
+        <h3>Quem pode usar seus cookies?</h3>
+        <button class="cookie-modal-close" id="cookieModalClose" aria-label="Fechar" type="button">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="cookie-modal-body">
+        <div class="cookie-cat">
+          <div class="cookie-cat-head">
+            <div class="cookie-cat-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9M13 17V5M8 17v-3"/></svg>
+              Estatísticas
+            </div>
+            <span class="cookie-toggle"><input type="checkbox" id="cookieAnalytics" checked><span class="cookie-toggle-track"></span></span>
+          </div>
+          <p class="cookie-cat-desc">Mostram, de forma anônima, como os visitantes usam o site — ajuda a melhorar a navegação.</p>
+        </div>
+      </div>
+      <div class="cookie-modal-footer">
+        <button class="cookie-btn cookie-btn-outline" id="cookieModalReject" type="button">Rejeitar</button>
+        <button class="cookie-btn cookie-btn-solid" id="cookieModalSave" type="button">Salvar opções</button>
+      </div>
+    </div>
+  </div>
+
+  <button class="cookie-fab" id="cookieFab" aria-label="Preferências de cookies" hidden type="button">
+    <span class="cookie-fab-emoji" aria-hidden="true">🍪</span>
+  </button>
+  <script>
+  (function () {
+    var KEY = 'ibr_cookie_consent';
+    var wrap = document.getElementById('cookieConsent');
+    var banner = document.getElementById('cookieBanner');
+    var fab = document.getElementById('cookieFab');
+    var modalOverlay = document.getElementById('cookieModalOverlay');
+    if (!wrap || !fab || !modalOverlay) return;
+
+    var saved = null;
+    try { saved = JSON.parse(localStorage.getItem(KEY)); } catch (e) {}
+
+    function openBanner() { wrap.classList.add('show'); fab.hidden = true; }
+    function closeBanner() { wrap.classList.remove('show'); fab.hidden = false; }
+    function openModal() { modalOverlay.hidden = false; wrap.classList.remove('show'); }
+    function closeModalReturn() {
+      modalOverlay.hidden = true;
+      if (saved) { closeBanner(); } else { openBanner(); }
+    }
+
+    if (saved) { closeBanner(); } else { openBanner(); }
+
+    function save(obj) {
+      saved = obj;
+      try { localStorage.setItem(KEY, JSON.stringify(obj)); } catch (e) {}
+    }
+
+    document.getElementById('cookieAccept').addEventListener('click', function () {
+      save({ necessarios: true, analiticos: true });
+      closeBanner();
+    });
+    document.getElementById('cookieReject').addEventListener('click', function () {
+      save({ necessarios: true, analiticos: false });
+      closeBanner();
+    });
+    document.getElementById('cookieCustomize').addEventListener('click', openModal);
+    document.getElementById('cookieModalClose').addEventListener('click', closeModalReturn);
+    modalOverlay.addEventListener('click', function (e) {
+      if (e.target === modalOverlay) closeModalReturn();
+    });
+    document.getElementById('cookieModalSave').addEventListener('click', function () {
+      save({
+        necessarios: true,
+        analiticos: document.getElementById('cookieAnalytics').checked
+      });
+      modalOverlay.hidden = true;
+      closeBanner();
+    });
+    document.getElementById('cookieModalReject').addEventListener('click', function () {
+      save({ necessarios: true, analiticos: false });
+      modalOverlay.hidden = true;
+      closeBanner();
+    });
+    fab.addEventListener('click', openBanner);
+    banner.addEventListener('click', function (e) { e.stopPropagation(); });
+    document.addEventListener('click', function (e) {
+      if (wrap.classList.contains('show') && e.target !== fab && !fab.contains(e.target) && !modalOverlay.contains(e.target)) {
+        closeBanner();
+      }
+    });
+  })();
+  </script>
+
+<script src="script.js"></script>
+  <script src="../tema-claro.js"></script>
+</body>
+</html>

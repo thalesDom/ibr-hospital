@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ouvidoria — IBR Hospital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <img src="../../imagens/logo-branca-sidebar.png" alt="IBR Hospital" class="brand-logo-img"/>
+      <p class="brand-sub">Painel Administrativo</p>
+    </div>
+    <nav class="sidebar-nav" style="visibility:hidden">
+      <div class="nav-section"><span class="nav-section-label">Principal</span>
+        <a href="index.html" class="nav-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg><span>Dashboard</span></a>
+        <a href="usuarios.html" class="nav-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Usuários</span></a>
+      </div>
+      <div class="nav-section"><span class="nav-section-label">Conteúdo</span>
+        <a href="slides.html" class="nav-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg><span>Slide</span></a>
+        <a href="noticias.html" class="nav-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><span>Notícias</span><span class="nav-badge" id="badgeNoticias">0</span></a>
+        <a href="medicos.html" class="nav-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg><span>Médicos</span></a>
+        <a href="servicos.html" class="nav-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><span>Serviços Médicos</span></a>
+        <a href="especialidades.html" class="nav-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg><span>Especialidades</span></a>
+      </div>
+      <div class="nav-section"><span class="nav-section-label">Atendimento</span>
+        <a href="contato.html" class="nav-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg><span>Contato</span><span class="nav-badge nav-badge--red" id="badgeContato"></span></a>
+        <a href="ouvidoria.html" class="nav-item active"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg><span>Ouvidoria</span><span class="nav-badge nav-badge--red" id="badgeOuvidoria"></span></a>
+      </div>
+      <div class="nav-section"><span class="nav-section-label">RH</span>
+        <a href="vagas.html" class="nav-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg><span>Vagas</span></a>
+        <a href="curriculos.html" class="nav-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><span>Currículos</span><span class="nav-badge nav-badge--red" id="badgeCurriculos"></span></a>
+      </div>
+    </nav>
+    <script>(function(){var nav=document.querySelector('.sidebar-nav');function ir(){try{var p=(location.pathname.split('/').pop()||'index.html');var l=nav&&nav.querySelector('a[href="'+p+'"]');if(l&&nav){var nr=nav.getBoundingClientRect();var lr=l.getBoundingClientRect();if(lr.top<nr.top)nav.scrollTop-=(nr.top-lr.top);else if(lr.bottom>nr.bottom)nav.scrollTop+=(lr.bottom-nr.bottom);}}catch(e){}if(nav)nav.style.visibility='visible';}requestAnimationFrame(function(){requestAnimationFrame(ir);});})();</script>
+    <div class="sidebar-footer">
+      <div class="user-info"><div class="user-avatar" id="userAvatar">A</div><div><p class="user-name" id="userName">—</p><p class="user-role" id="userRole">Admin</p></div></div>
+      <button class="btn-logout" id="btnLogout" title="Sair"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="btn-toggle-sidebar" id="toggleSidebar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        <div><h1 class="page-title">Ouvidoria</h1><p class="page-sub">Manifestações recebidas pela Ouvidoria</p></div>
+      </div>
+      <div class="topbar-right">
+        <select id="filtroLido" class="btn btn--outline" onchange="carregarMensagens()" style="cursor:pointer">
+          <option value="">Todas</option>
+          <option value="0">Não lidas</option>
+          <option value="1">Lidas</option>
+        </select>
+      </div>
+    </header>
+    <div class="content">
+      <div class="table-wrap">
+        <div class="table-header"><h2 id="tableTitle">Todas as Mensagens</h2></div>
+        <div id="tableContent"><div style="padding:40px;text-align:center;color:#7a90b3">Carregando...</div></div>
+      </div>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="modalMensagem">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Detalhes da Mensagem</h3>
+        <button class="modal-close" onclick="closeModal('modalMensagem')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+      </div>
+      <div class="modal-body" id="modalMensagemBody"></div>
+      <div class="modal-footer"><button class="btn btn--outline" onclick="closeModal('modalMensagem')">Fechar</button></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+  let MSGS = {};
+  async function carregarMensagens() {
+    const lido = document.getElementById('filtroLido').value;
+    let url = `${API}/ouvidoria.php?action=lista&origem=ouvidoria`;
+    if (lido !== '') url += `&lido=${lido}`;
+    const d = await fetch(url).then(r => r.json());
+    const el = document.getElementById('tableContent');
+    const lista = (d.mensagens || []).map(m => safeFields(m, true));
+    MSGS = Object.fromEntries(lista.map(m => [m.id, m]));
+    if (!d.success || !lista.length) {
+      el.innerHTML = '<div class="empty-state"><p>Nenhuma mensagem encontrada.</p></div>'; return;
+    }
+    el.innerHTML = `<table>
+      <thead><tr><th>Nome</th><th>Tipo</th><th>Contato</th><th>Status</th><th>Recebida em</th><th>Ações</th></tr></thead>
+      <tbody>${lista.map(m => `<tr style="${m.lido=='0'?'font-weight:600;background:#fafbff':''}">
+        <td>${m.nome || '—'}</td>
+        <td>${m.tipo || '—'}</td>
+        <td><div>${m.email && m.email!=='Não informado' ? m.email : ''}</div><div style="font-size:.78rem;color:#7a90b3">${m.telefone && m.telefone!=='Não informado' ? m.telefone : '—'}</div></td>
+        <td><span class="badge ${m.lido=='1'?'badge--gray':'badge--orange'}">${m.lido=='1'?'Lida':'Nova'}</span></td>
+        <td>${fmtDateTime(m.created_at)}</td>
+        <td><div style="display:flex;gap:6px">
+          <button class="btn btn--outline btn--sm" onclick="verMensagem(${Number(m.id)})">Ver</button>
+          <button class="btn btn--danger btn--sm btn--icon" onclick="excluirMensagem(${m.id})"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3,6 5,6 21,6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/></svg></button>
+        </div></td>
+      </tr>`).join('')}</tbody></table>`;
+  }
+
+  async function verMensagem(id) {
+    const m = MSGS[id]; if (!m) return;
+    if (m.lido == 0) {
+      const b = new FormData(); b.append('id', m.id);
+      await fetch(`${API}/ouvidoria.php?action=marcar_lido`, { method: 'POST', body: b });
+    }
+    document.getElementById('modalMensagemBody').innerHTML = `
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+        <div><p style="font-size:.72rem;font-weight:700;text-transform:uppercase;color:#7a90b3;margin-bottom:4px">Nome</p><p style="font-weight:600">${m.nome || '—'}</p></div>
+        <div><p style="font-size:.72rem;font-weight:700;text-transform:uppercase;color:#7a90b3;margin-bottom:4px">Tipo</p><p>${m.tipo || '—'}</p></div>
+        <div><p style="font-size:.72rem;font-weight:700;text-transform:uppercase;color:#7a90b3;margin-bottom:4px">Telefone</p><p>${m.telefone && m.telefone!=='Não informado' ? m.telefone : '—'}</p></div>
+        ${m.email && m.email!=='Não informado' ? `<div><p style="font-size:.72rem;font-weight:700;text-transform:uppercase;color:#7a90b3;margin-bottom:4px">Email</p><a href="mailto:${m.email}" style="color:#1a5ccc">${m.email}</a></div>` : ''}
+        ${m.setor && m.setor!=='Não informado' ? `<div><p style="font-size:.72rem;font-weight:700;text-transform:uppercase;color:#7a90b3;margin-bottom:4px">Setor / Área</p><p>${m.setor}</p></div>` : ''}
+      </div>
+      <div style="background:#f8fafc;border-radius:8px;padding:16px">
+        <p style="font-size:.72rem;font-weight:700;text-transform:uppercase;color:#7a90b3;margin-bottom:8px">Mensagem</p>
+        <p style="font-size:.9rem;line-height:1.7;color:#3d5175;white-space:pre-wrap">${m.mensagem}</p>
+      </div>`;
+    openModal('modalMensagem');
+    carregarMensagens();
+  }
+
+  async function excluirMensagem(id) {
+    confirmDelete('Excluir esta mensagem permanentemente?', async () => {
+      const b = new FormData(); b.append('id', id);
+      const d = await fetch(`${API}/ouvidoria.php?action=excluir`, { method: 'POST', body: b }).then(r => r.json());
+      toast(d.message, d.success ? 'success' : 'error');
+      if (d.success) carregarMensagens();
+    });
+  }
+
+  document.addEventListener('ibr:ready', carregarMensagens);
+  </script>
+</body>
+</html>

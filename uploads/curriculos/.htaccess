@@ -1,0 +1,3 @@
+# Currículos têm dados pessoais: sem acesso por link direto.
+# O painel baixa o arquivo pelo endereço protegido (api/vagas.php?action=baixar_curriculo).
+Require all denied

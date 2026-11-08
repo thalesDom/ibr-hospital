@@ -157,3 +157,17 @@
 }
 .cookie-fab:hover::after { opacity: 1; transform: translate(0, -50%); }
 @media (max-width: 640px) { .cookie-fab::after { display: none; } }
+
+/* ── Aviso de cookies no celular: cartão dentro da tela, botões que cabem ── */
+@media (max-width: 640px) {
+  .cookie-consent { padding: 0 10px calc(10px + env(safe-area-inset-bottom, 0px)); box-sizing: border-box; }
+  .cookie-banner {
+    border: 1px solid #e5e9f0 !important; border-radius: 20px !important; max-width: 100%; box-sizing: border-box;
+    padding: 16px !important; gap: 12px !important; flex-direction: column !important; align-items: stretch !important;
+    max-height: calc(100vh - 24px); overflow-y: auto;
+  }
+  .cookie-banner-text p { font-size: .82rem; line-height: 1.45; }
+  .cookie-banner-actions { width: 100% !important; display: grid !important; grid-template-columns: 1fr 1fr; gap: 8px !important; }
+  .cookie-banner-actions .cookie-btn { width: 100%; padding: 12px 10px !important; white-space: normal; text-align: center; }
+  .cookie-banner-actions .cookie-btn-text { grid-column: 1 / -1; order: 3; padding: 6px !important; }
+}

@@ -16,7 +16,7 @@ define('UPLOAD_URL', '../uploads/curriculos/');
 // ── Telas do painel controláveis por permissão ──────────
 // "usuarios" não entra aqui de propósito — só admin mexe em usuário,
 // nunca é uma permissão que dá pra conceder a um editor.
-define('PAINEL_PAGINAS', ['slides','noticias','medicos','servicos','especialidades','contato','ouvidoria','vagas','curriculos']);
+define('PAINEL_PAGINAS', ['slides','noticias','medicos','servicos','especialidades','contato','ouvidoria','vagas','curriculos','documentos']);
 
 // ── Conexão PDO ─────────────────────────────────────────
 function getDB(): PDO {

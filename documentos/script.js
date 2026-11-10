@@ -39,6 +39,14 @@
     }); });
   }
 
+  // textos da página (editáveis na área restrita)
+  fetch('../api/documentos.php?textos=1').then(function (r) { return r.json(); }).then(function (j) {
+    var t = (j && j.success && j.textos) || {};
+    var sub = document.getElementById('docsSubtitulo'), av = document.getElementById('docsAviso');
+    if (sub && typeof t.subtitulo === 'string' && t.subtitulo.trim()) sub.textContent = t.subtitulo;
+    if (av && typeof t.aviso === 'string') { if (t.aviso.trim()) av.textContent = t.aviso; else av.style.display = 'none'; }
+  }).catch(function () {});
+
   fetch('../api/documentos.php')
     .then(function (r) { return r.json(); })
     .then(function (j) { render(j && j.success ? (j.data || []) : []); })

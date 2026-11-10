@@ -84,7 +84,7 @@
 @keyframes svToastIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 .sv-hidden{display:none!important}
 @media(max-width:640px){.sv-form-row--2{grid-template-columns:1fr}.sv-item-img{display:none}.sv-modal-header,.sv-form,.sv-modal-footer{padding-left:18px;padding-right:18px}}
-  </style>
+  .dc-textos{background:#fff;border:1.5px solid #e2e8f2;border-radius:16px;padding:20px 22px;margin-bottom:24px;display:flex;flex-direction:column;gap:12px}.dc-textos h3{font-size:1rem;font-weight:800;color:#0d1f3c}.dc-textos-sub{font-size:.82rem;color:#7a90b3;margin-top:-8px}.dc-textos-acoes{display:flex;align-items:center;justify-content:space-between;gap:12px}</style>
 <style>.doc-arq{font-size:.78rem;color:#7a90b3;margin-top:3px}.sv-field input[type=file]{padding:9px 10px}</style>
 </head>
 <body>
@@ -198,6 +198,16 @@
 
     <div class="content">
       <div id="svApiErr" class="sv-api-err">⚠️ Não foi possível conectar à API. Verifique se <code>api/documentos.php</code> existe e se o banco está configurado.</div>
+      <div class="dc-textos">
+        <h3>Textos da página</h3>
+        <p class="dc-textos-sub">Aparecem no topo da página Documentos Institucionais do site.</p>
+        <div class="sv-field"><label for="dcSubtitulo">Texto abaixo do título</label>
+          <textarea id="dcSubtitulo" rows="2" maxlength="400"></textarea></div>
+        <div class="sv-field"><label for="dcAviso">Aviso acima da lista <span class="doc-arq">(deixe vazio para não mostrar)</span></label>
+          <textarea id="dcAviso" rows="2" maxlength="600"></textarea></div>
+        <div class="dc-textos-acoes"><span class="sv-field-error" id="dcTextoErro"></span>
+          <button class="btn-novo" id="dcSalvarTextos" type="button">Salvar textos</button></div>
+      </div>
       <div class="sv-toolbar">
         <div class="sv-toolbar-left">
           <div class="sv-search">
@@ -339,7 +349,23 @@
       } catch (e) { $('dcErro').textContent = 'Erro de conexão.'; }
       $('dcSalvar').disabled = false;
     });
-    document.addEventListener('ibr:ready', carregar);
+    var PADRAO = { subtitulo: 'Central de documentos do IBR Hospital. Baixe aqui os documentos institucionais disponíveis.', aviso: 'Em caso de dúvidas ou necessidade de versões atualizadas, entre em contato com o hospital pelo Fale Conosco.' };
+    async function carregarTextos() {
+      var t = {};
+      try { var r = await fetch(API + '?textos=1', { credentials: 'same-origin' }); var j = await r.json(); if (j.success) t = j.textos || {}; } catch (e) {}
+      $('dcSubtitulo').value = typeof t.subtitulo === 'string' && t.subtitulo.trim() ? t.subtitulo : PADRAO.subtitulo;
+      $('dcAviso').value = typeof t.aviso === 'string' ? t.aviso : PADRAO.aviso;
+    }
+    $('dcSalvarTextos').addEventListener('click', async function () {
+      var fd = new FormData(); fd.append('acao', 'textos'); fd.append('subtitulo', $('dcSubtitulo').value); fd.append('aviso', $('dcAviso').value);
+      $('dcTextoErro').textContent = ''; $('dcSalvarTextos').disabled = true;
+      try {
+        var r = await fetch(API, { method: 'POST', credentials: 'same-origin', body: fd }); var j = await r.json();
+        if (j.success) toast('Textos salvos.'); else $('dcTextoErro').textContent = j.message || 'Erro ao salvar.';
+      } catch (e) { $('dcTextoErro').textContent = 'Erro de conexão.'; }
+      $('dcSalvarTextos').disabled = false;
+    });
+    document.addEventListener('ibr:ready', function () { carregar(); carregarTextos(); });
   })();
   </script>
 </body>

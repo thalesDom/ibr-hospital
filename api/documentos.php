@@ -19,6 +19,7 @@ try {
         `updated_at` DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
         PRIMARY KEY (`id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+    $pdo->exec("CREATE TABLE IF NOT EXISTS `documentos_textos` (`chave` VARCHAR(40) NOT NULL, `valor` TEXT NOT NULL, PRIMARY KEY (`chave`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
 } catch (Throwable $e) {
     error_log('[IBR] ' . $e->getMessage());
     echo json_encode(['success' => false, 'message' => 'Erro de conexão com o banco.']);
@@ -62,6 +63,16 @@ function apagarArquivo(string $url): void {
     if (is_file($p)) @unlink($p);
 }
 
+if ($method === 'GET' && isset($_GET['textos'])) {
+    try {
+        $t = $pdo->query("SELECT chave, valor FROM documentos_textos")->fetchAll(PDO::FETCH_KEY_PAIR);
+        echo json_encode(['success' => true, 'textos' => $t ?: new stdClass()]);
+    } catch (Throwable $e) {
+        error_log('[IBR] ' . $e->getMessage()); echo json_encode(['success' => false, 'message' => 'Erro ao buscar.']);
+    }
+    exit;
+}
+
 if ($method === 'GET') {
     try {
         startSession();
@@ -71,6 +82,21 @@ if ($method === 'GET') {
         echo json_encode(['success' => true, 'data' => $pdo->query($sql)->fetchAll()]);
     } catch (Throwable $e) {
         error_log('[IBR] ' . $e->getMessage()); echo json_encode(['success' => false, 'message' => 'Erro ao buscar.']);
+    }
+    exit;
+}
+
+if ($method === 'POST' && ($_POST['acao'] ?? '') === 'textos') {
+    try {
+        $st = $pdo->prepare("INSERT INTO documentos_textos (chave, valor) VALUES (?,?) ON DUPLICATE KEY UPDATE valor=VALUES(valor)");
+        foreach (['subtitulo' => 400, 'aviso' => 600] as $k => $max) {
+            $v = trim($_POST[$k] ?? '');
+            if (mb_strlen($v) > $max) { echo json_encode(['success' => false, 'message' => 'Texto muito longo (máx ' . $max . ' caracteres).']); exit; }
+            $st->execute([$k, $v]);
+        }
+        echo json_encode(['success' => true]);
+    } catch (Throwable $e) {
+        error_log('[IBR] ' . $e->getMessage()); echo json_encode(['success' => false, 'message' => 'Erro ao salvar.']);
     }
     exit;
 }
